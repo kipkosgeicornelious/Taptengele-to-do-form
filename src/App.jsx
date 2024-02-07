@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import todoList from "../data/data";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
@@ -12,7 +12,7 @@ function App() {
     console.log(todos);
     return (
         <>
-        <TodoForm />
+        <TodoForm/>
         <Todo/>
         </>
     );
