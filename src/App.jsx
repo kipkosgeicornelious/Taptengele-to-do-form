@@ -1,41 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState } from "react";
+import todoList from "../data/data";
+import Todo from "./Todo";
+import TodoForm from "./TodoForm";
 function App() {
-  const TodoApp = () => {
-    const [job, setJob] = useState([]);
-    const [newTask, setNewJob] = useState('');
-  
-    const handleInputChange = (event) => {
-      setNewJob(event.target.value);
-    };
-  
-    const addJob = () => {
-        setJob( newJob);
-      
-    };
-  
+    const [todos, setTodos] = useState(todoList);
+
+    // add a new task
+    function handleTodoFormSubmit(newTodo) {
+        setTodos([...todos, newTodo])
+    }
+    console.log(todos);
     return (
-      <div>
-        <h1>Todo App</h1>
-        <input
-          type="text"
-          value={newJob}
-          onChange={handleInputChange}
-          placeholder="Add a new job"
-        />
-        <button onClick={addJob}>Add Job</button>
-        <ul>
-          {tasks.map((job, index) => (
-            <li key={index}>{job}</li>
-          ))}
-        </ul>
-      </div>
+        <>
+        <TodoForm />
+        <Todo/>
+        </>
     );
-  };
-  
 }
 
-export default App
+export default App;
